@@ -89,7 +89,7 @@ function smoothScroll(target) {
   const targetPosition = target.getBoundingClientRect().top + window.scrollY;
   const startPosition = window.scrollY;
   const distance = targetPosition - startPosition;
-  const duration = 2000; // Duration in milliseconds
+  const duration = 1500; // Duration in milliseconds
   let startTime = null;
 
   function animation(currentTime) {
@@ -109,14 +109,14 @@ function smoothScroll(target) {
 
   requestAnimationFrame(animation);
 }
-document.getElementById('about-me-btn').addEventListener('mouseover', function() {
+document.getElementById('about-me-btn').addEventListener('load', function() {
   this.querySelector('svg').animate([
     { transform: 'translateY(20)' },
     { transform: 'translateY(-5px)' },
     { transform: 'translateY(20)' }
   ], {
     duration: 1000,
-    iterations: 3
+    iterations: Infinity
   });
 });
 
