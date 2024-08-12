@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const sunIcon = document.getElementById('sun-icon');
@@ -87,7 +89,7 @@ function smoothScroll(target) {
   const targetPosition = target.getBoundingClientRect().top + window.scrollY;
   const startPosition = window.scrollY;
   const distance = targetPosition - startPosition;
-  const duration = 1000; // Duration in milliseconds
+  const duration = 2000; // Duration in milliseconds
   let startTime = null;
 
   function animation(currentTime) {
@@ -107,3 +109,14 @@ function smoothScroll(target) {
 
   requestAnimationFrame(animation);
 }
+document.getElementById('about-me-btn').addEventListener('mouseover', function() {
+  this.querySelector('svg').animate([
+    { transform: 'translateY(20)' },
+    { transform: 'translateY(-5px)' },
+    { transform: 'translateY(20)' }
+  ], {
+    duration: 1000,
+    iterations: 3
+  });
+});
+

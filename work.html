@@ -1,20 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <link rel="stylesheet" href="tufte-css/tufte.css" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience | Omkaar Shenoy</title>
+    <link rel="stylesheet" href="tufte.css">
 </head>
 
-<nav>
-  <a href="index.html"> home </a>
-  <a href="work.html"> work </a>
-  <a href="https://www.w3schools.com"> resume </a>
-  <button id="theme-toggle" aria-label="Toggle dark mode">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" id="sun-icon">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-    </svg>
-    
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" id="moon-icon">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-    </svg>
-    
-  </button>
-</nav>
+<body>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+        <svg viewBox="0 0 24 24">
+            <!-- SVG content for light/dark mode icon -->
+        </svg>
+    </button>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <article>
+        <h1>Work Experience</h1>
+        <p class="subtitle">My professional journey and key contributions</p>
+
+        <section>
+            <h2>QA Automation Intern at WebstaurantStore</h2>
+            <p class="by-line">May 2024 - Present</p>
+            <ul>
+                <li>Developed automated test scripts to improve software quality and reduce manual testing time.</li>
+                <li>Collaborated with cross-functional teams to identify and resolve defects in the application.</li>
+                <li>Enhanced existing test frameworks to support additional platforms and browsers.</li>
+                <li>Conducted performance testing to ensure the application could handle high user loads.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Software Developer at National Public Radio (NPR)</h2>
+            <p class="by-line">August 2023 - April 2024</p>
+            <ul>
+                <li>Developed and maintained software solutions for content distribution and management.</li>
+                <li>Worked on optimizing the backend systems for faster content delivery and scalability.</li>
+                <li>Collaborated with designers and content creators to deliver user-friendly features.</li>
+                <li>Implemented analytics tracking to measure user engagement with content.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Other Experiences</h2>
+            <p class="by-line">Details of other roles and responsibilities</p>
+            <ul>
+                <li>Internships, volunteer work, or projects that showcase additional skills and experiences.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <nav class="social-icons">
+                <a href="https://www.linkedin.com/in/omkaar-shenoy" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <!-- LinkedIn SVG icon -->
+                    </svg>
+                </a>
+                <a href="https://github.com/omkaar-shenoy" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <!-- GitHub SVG icon -->
+                    </svg>
+                </a>
+                <!-- Add more social icons as needed -->
+            </nav>
+        </footer>
+    </article>
+
+    <script>
+        // JavaScript for theme toggle button
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        });
+    </script>
+
+</body>
+
+</html>

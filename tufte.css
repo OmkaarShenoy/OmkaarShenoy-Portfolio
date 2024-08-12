@@ -11,7 +11,7 @@
 }
 
 [data-theme="dark"] {
-    --bg-color: #1a1a1a;
+    --bg-color: #121212;
     --text-color: #efefec;
     --link-color: #efefec;
 }
@@ -545,7 +545,6 @@ p.by-line {
     line-height: 0rem;
     font-size: 1.2rem;
     font-weight: 900;
-    padding-bottom: 20px;
 }
 .social-icons {
     display: flex;
@@ -584,7 +583,7 @@ p.by-line {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    margin-bottom: 30vh;
+    margin-bottom: 40vh;
   }
   
   .intro-paragraph.show {
@@ -600,7 +599,7 @@ p.by-line {
     background-color: transparent;
     border: none;
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.3s ease, bottom 0.3s ease;
