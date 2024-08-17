@@ -5,7 +5,7 @@
 
 :root {
     color-scheme: light dark;
-    --bg-color: #fffff8;
+    --bg-color: #F7F1E5;
     --text-color: #111;
     --link-color: #111;
 }
@@ -112,6 +112,7 @@ body {
     width: 87.5%;
     margin: -100px auto;
     /* padding-left: 12.5%; */
+    
     font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -142,8 +143,7 @@ h3 {
     font-style: italic;
     font-weight: 400;
     font-size: 1.7rem;
-    margin-top: 2rem;
-    margin-bottom: 1.4rem;
+
     line-height: 1;
 }
 
@@ -179,7 +179,7 @@ article {
 }
 
 section {
-    padding-top: 1rem;
+    padding-top: 5rem;
     padding-bottom: 1rem;
 }
 
@@ -615,3 +615,160 @@ p.by-line {
   }
   
 
+ .company-list {    
+    width: 100%;
+}
+.company {
+    background-color: #1c1c1e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #a0a0a0;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+}
+.company.active, .company:hover {
+    background-color: #ffffff;
+    color: #121212;
+}
+.job-card {
+    background-color: #2c2c2e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
+    width: 100%;
+}
+.job-card.active {
+    display: block;
+}
+.job-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.job-duration {
+    font-size: 14px;
+    color: #a0a0a0;
+    margin-bottom: 20px;
+}
+.view-project {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #a0a0a0;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.job-description {
+    font-size: 16px;
+    color: #a0a0a0;
+}
+
+.work-bar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding-top: 30px;
+    left: 100;
+    top: 30;
+    height: 150;
+}
+
+
+  .work-bar a {
+    text-decoration: none;
+
+    font-size: 1.65rem;
+  }
+
+  .work-bar a:hover {
+    color: #002f4b;
+  }
+
+  .content {
+    padding-top: 150px;
+  }
+
+  .experience h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .experience-item {
+   
+    margin: auto;
+    width: 600px;
+    
+  }
+  .experience-item:hover {
+    cursor: pointer;
+  }
+
+  .experience-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .experience-item h3 span {
+    font-size: 1rem;
+    float: right;
+    font-weight: 200;
+  }
+
+  .experience-item p {
+    display: block; /* Ensure paragraphs are block elements */
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  h2{
+    font-size: 5rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  /* Add this CSS to your stylesheet */
+.lineHorizontal__container {
+    display: flex;
+    justify-content: center; /* Center the line */
+    margin: 10px 0; /* Add some spacing */
+}
+/* Add this CSS to your stylesheet */
+.lineHorizontal {
+    border-top: 2px dotted rgb(30, 30, 30); /* Change to dotted */
+    width: 100%; /* Full width */
+}
+.highlight{
+    margin-left: 0;
+}
+
+/* Add this CSS to style the active work-bar link */
+
+.work-bar svg {
+    display: none; /* Hide SVGs by default */
+    margin-left: 5px; /* Space between text and SVG */
+    text-decoration: none;
+    position: fixed;
+    left: 80px;
+    height: 1.25rem
+  }
+  
+  .work-item.active svg {
+    display: inline; /* Show SVG for active item */
+  }
+
+  .work-item {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between text and SVG */
+    align-items: center; /* Center items vertically */
+}
+  

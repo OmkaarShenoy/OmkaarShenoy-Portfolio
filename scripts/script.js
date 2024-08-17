@@ -109,14 +109,4 @@ function smoothScroll(target) {
 
   requestAnimationFrame(animation);
 }
-document.getElementById('about-me-btn').addEventListener('load', function() {
-  this.querySelector('svg').animate([
-    { transform: 'translateY(20)' },
-    { transform: 'translateY(-5px)' },
-    { transform: 'translateY(20)' }
-  ], {
-    duration: 1000,
-    iterations: Infinity
-  });
-});
 
