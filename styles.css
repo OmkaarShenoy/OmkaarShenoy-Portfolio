@@ -24,7 +24,7 @@ a:link,
 
 a {
     color: inherit;
-  }
+}
 
 /* Theme toggle button styles */
 #theme-toggle {
@@ -112,7 +112,7 @@ body {
     width: 87.5%;
     margin: -100px auto;
     /* padding-left: 12.5%; */
-    
+
     font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -293,6 +293,15 @@ figure.fullwidth figcaption {
     text-shadow: unset;
 }
 
+a {
+    text-decoration: none; /* Remove default underline */
+
+  }
+
+  a:hover {
+    border-bottom: 1px dashed var(--text-color); /* Change to dotted underline on hover */
+  }
+
 a:link,
 .tufte-underline,
 .hover-tufte-underline:hover {
@@ -305,6 +314,7 @@ a:link,
     background-repeat: no-repeat, no-repeat, repeat-x;
     background-position: 0% 93%, 100% 93%, 0% 93%;
 }
+
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
 
@@ -542,56 +552,69 @@ label.margin-toggle:not(.sidenote-number) {
     }
 }
 p.by-line {
-    line-height: 0rem;
+    margin: 0px;
+
     font-size: 1.2rem;
     font-weight: 900;
+    text-align: center;
 }
 .social-icons {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
-  }
-  
-  .social-icons a {
-    color: #333; /* Adjust color as needed */
+}
+
+.social-icons a {
+    color: #333;
+    /* Adjust color as needed */
     transition: color 0.3s ease;
-  }
-  
-  .social-icons a:hover {
-    color: #0077b5; /* LinkedIn blue color on hover */
-  }
-  
-  .social-icons svg {
+}
+
+.social-icons a:hover {
+    color: #0077b5;
+    /* LinkedIn blue color on hover */
+}
+
+.social-icons svg {
     width: 24px;
     height: 24px;
-  }
+}
 
-  .landing-name{
-    display: flex; /* Use flexbox for centering */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
-    text-align: center; /* Center text */
-    padding: 20px; /* Add some padding */
-    font-size: 3rem; /* Increase font size */
-  }
+.landing-name {
+    display: flex;
+    /* Use flexbox for centering */
+    flex-direction: column;
+    /* Stack children vertically */
+    align-items: center;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+    height: 100vh;
+    /* Full viewport height */
+    text-align: center;
+    /* Center text */
+    padding: 20px;
+    /* Add some padding */
+    font-size: 3rem;
+    /* Increase font size */
+}
 
-  /* Updated CSS */
+/* Updated CSS */
 .intro-paragraph {
-    margin-top: 75vh; /* Pushes the paragraph below the first viewport */
+    margin-top: 75vh;
+    /* Pushes the paragraph below the first viewport */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     margin-bottom: 40vh;
-  }
-  
-  .intro-paragraph.show {
+}
+
+.intro-paragraph.show {
     opacity: 1;
     transform: translateY(0);
-  }
-  
-  #about-me-btn {
+}
+
+#about-me-btn {
     position: fixed;
     bottom: 20px;
     left: 50%;
@@ -605,17 +628,17 @@ p.by-line {
     transition: opacity 0.3s ease, bottom 0.3s ease;
     padding: 10px;
     font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-  
+
 }
-  
-  
-  #about-me-btn:hover {
+
+
+#about-me-btn:hover {
     opacity: 1;
     text-decoration: underline;
-  }
-  
+}
 
- .company-list {    
+
+.company-list {
     width: 100%;
 }
 .company {
@@ -684,91 +707,111 @@ p.by-line {
 }
 
 
-  .work-bar a {
-    text-decoration: none;
-
+.work-bar a {
     font-size: 1.65rem;
-  }
+}
 
-  .work-bar a:hover {
-    color: #002f4b;
-  }
-
-  .content {
+.content {
     padding-top: 150px;
-  }
+}
 
-  .experience h2 {
+.experience h2 {
     font-size: 2rem;
     margin-bottom: 10px;
     text-align: center;
-  }
+}
 
-  .experience-item {
-   
+.experience-item {
+
     margin: auto;
     width: 600px;
-    
-  }
-  .experience-item:hover {
-    cursor: pointer;
-  }
 
-  .experience-item h3 {
+}
+
+.experience-item h3 {
     font-size: 1.5rem;
-    font-weight: 700;
-  }
-  .experience-item h3 span {
+    font-weight: 300;
+    margin-bottom:0px
+}
+.experience-item h3 span {
     font-size: 1rem;
-    float: right;
+    padding-left:5px;
+    /* float: right; */
     font-weight: 200;
-  }
 
-  .experience-item p {
-    display: block; /* Ensure paragraphs are block elements */
-    font-size: 1rem;
-    line-height: 1.2rem;
-  }
+}
 
-  h2{
+.experience-item p {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin-top:5px
+}
+
+.experience-item svg{
+    height:2rem;
+    float:right;
+    transition: transform 0.3s ease;
+}
+
+.experience-item:hover svg {
+    transform: translateX(-10px);
+    cursor: pointer;
+}
+
+.experience-item:hover svg {
+    transform: translateX(10px);
+}
+
+h2 {
     font-size: 5rem;
     padding: 2px 8px;
     border-radius: 3px;
-  }
+}
 
-  /* Add this CSS to your stylesheet */
+/* Add this CSS to your stylesheet */
 .lineHorizontal__container {
     display: flex;
-    justify-content: center; /* Center the line */
-    margin: 10px 0; /* Add some spacing */
+    justify-content: center;
+    margin: 10px 0;
 }
 /* Add this CSS to your stylesheet */
 .lineHorizontal {
-    border-top: 2px dotted rgb(30, 30, 30); /* Change to dotted */
-    width: 100%; /* Full width */
+    border-top: 1px dashed var(--text-color);
+    width: 100%;
 }
-.highlight{
+.highlight {
     margin-left: 0;
 }
 
 /* Add this CSS to style the active work-bar link */
 
 .work-bar svg {
-    display: none; /* Hide SVGs by default */
-    margin-left: 5px; /* Space between text and SVG */
+    display: none;
+    /* Hide SVGs by default */
+    margin-left: 5px;
+    /* Space between text and SVG */
     text-decoration: none;
     position: fixed;
     left: 80px;
     height: 1.25rem
-  }
-  
-  .work-item.active svg {
-    display: inline; /* Show SVG for active item */
-  }
-
-  .work-item {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space between text and SVG */
-    align-items: center; /* Center items vertically */
 }
-  
+
+.work-item.active svg {
+    display: inline;
+    /* Show SVG for active item */
+}
+
+.work-item {
+    display: flex;
+    /* Use flexbox for alignment */
+    justify-content: space-between;
+    /* Space between text and SVG */
+    align-items: center;
+    /* Center items vertically */
+}
+
+.experience-item p:nth-of-type(2) {
+    font-size: 1rem; /* Adjust the font size as needed */
+    line-height: 1.5rem; /* Adjust line height if necessary */
+}
