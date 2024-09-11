@@ -295,12 +295,39 @@ figure.fullwidth figcaption {
 
 a {
     text-decoration: none; /* Remove default underline */
-
+    position: relative; /* Required for the pseudo-element */
   }
-
-  a:hover {
-    border-bottom: 1px dashed var(--text-color); /* Change to dotted underline on hover */
+  
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px; /* Adjust the thickness of the underline */
+    background-image: linear-gradient(to right, currentColor 50%, transparent 50%);    
+    background-size: 10px 1px; /* Adjust the size of the dots */
+    background-position: 0 0; /* Initial background position */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.2s ease; /* Transition for appearing effect */
   }
+  
+  a:hover::after {
+    opacity: 1; /* Make the border visible on hover */
+    animation: moveDots 0.5s linear infinite; /* Start the animation on hover */
+  }
+  
+  @keyframes moveDots {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 10px 0; /* Adjust this value to control the speed */
+    }
+  }
+  
+  
+  
 
 a:link,
 .tufte-underline,
