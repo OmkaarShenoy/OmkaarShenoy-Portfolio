@@ -722,16 +722,16 @@ p.by-line {
     position: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: start;
+    justify-content: space-between;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
     padding-top: 30px;
-    left: 100;
-    top: 30;
-    height: 150;
-}
+    left: 100px; /* Adjust as needed */
+    top: 30px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+  }
 
 
 .work-bar a {
@@ -813,30 +813,56 @@ h2 {
 
 /* Add this CSS to style the active work-bar link */
 
+/* Remove the SVG styling */
 .work-bar svg {
     display: none;
-    /* Hide SVGs by default */
-    margin-left: 5px;
-    /* Space between text and SVG */
-    text-decoration: none;
-    position: fixed;
-    left: 80px;
-    height: 1.25rem
 }
 
-.work-item.active svg {
-    display: inline;
-    /* Show SVG for active item */
-}
-
+/* Add hover effect and indent for active item */
 .work-item {
     display: flex;
-    /* Use flexbox for alignment */
-    justify-content: space-between;
-    /* Space between text and SVG */
     align-items: center;
-    /* Center items vertically */
+    transition: transform 0.3s ease;
 }
+
+.work-item.active {
+    transform: translateX(20px); /* Indent more when active */
+}
+
+.work-item:hover {
+    transform: translateX(20px); /* Indent on hover */
+}
+
+
+.work-item.active svg {
+    display: inline; /* Show SVG for active item */
+}
+
+  /* Align SVG and text in the work-item */
+  .work-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .work-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .work-item svg {
+    margin-right: 8px; /* Space between SVG and text */
+    display: none; /* Hide by default */
+  }
+
+  .work-item.active svg {
+    display: inline; /* Show SVG for active item */
+  }
+
+  .work-item a {
+    text-decoration: none;
+    color: inherit;
+  }
 
 .experience-item p:nth-of-type(2) {
     font-size: 1rem; /* Adjust the font size as needed */

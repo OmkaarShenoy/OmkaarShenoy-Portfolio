@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const sunIcon = document.getElementById('sun-icon');
   const moonIcon = document.getElementById('moon-icon');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-  const svgArrows = document.querySelectorAll('.work-item svg');
-  const workbarHeight = 150; // Height of the work-bar
-  const documentHeight = document.body.scrollHeight - window.innerHeight;
   const workbarLinks = document.querySelectorAll('.work-item a'); // Ensure this is defined here
 
   function setTheme(theme) {
@@ -35,43 +32,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
-    setTheme(currentTheme === 'light' ? 'dark' : 'light');
+    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
   });
 
-  prefersDarkScheme.addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-      setTheme(e.matches ? 'dark' : 'light');
-    }
-  });
-
-  function handleScroll() {
-    const scrollY = window.scrollY;
-
-    // Calculate the percentage of the document that has been scrolled
-    const percentageScrolled = scrollY / documentHeight;
-
-    // Calculate the position of the arrow within the 150px work-bar
-    const arrowPosition = percentageScrolled * (workbarHeight - 16); // Adjust by subtracting SVG height
-
-    // Update SVG arrow position
-    svgArrows.forEach((svgArrow) => {
-      svgArrow.style.transform = `translateY(${arrowPosition}px)`;
-    });
-  }
-
-  window.addEventListener('scroll', handleScroll);
-
-
+  // Add event listener to work-item links
   workbarLinks.forEach(link => {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
+
+      // Remove active class from all work-items
+      workbarLinks.forEach(link => link.parentElement.classList.remove('active'));
+
+      // Add active class to the clicked work-item
+      this.parentElement.classList.add('active');
+
+      // Smooth scroll to the target element
       smoothScroll(targetElement);
     });
-  
   });
-
 });
 
 function smoothScroll(target) {
@@ -98,7 +78,3 @@ function smoothScroll(target) {
 
   requestAnimationFrame(animation);
 }
-
-workbarLinks.forEach(link => {
- 
-});
