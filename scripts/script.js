@@ -184,3 +184,14 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const closeBtn = document.getElementById('close-mobile-warning');
+  const mobileWarning = document.getElementById('mobile-warning');
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      mobileWarning.style.display = 'none';
+    });
+  }
+});

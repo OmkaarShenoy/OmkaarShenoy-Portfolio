@@ -1202,3 +1202,73 @@ nav a:hover {
     display: none !important; /* Hide all cursor elements, including blur/fuzzy sphere */
   }
 }
+
+/* Mobile Warning Popup Styles */
+#mobile-warning {
+  display: none; /* Hidden by default on larger screens */
+}
+
+@media (max-width: 768px) {
+  #mobile-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Show as flex container */
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
+    z-index: 1000000; /* Ensure it's above other elements */
+  }
+
+  .mobile-warning-content {
+    position: relative; /* Establish positioning context for the close button */
+    background-color: var(--bg-color); /* Use site's background color */
+    color: var(--text-color); /* Use site's text color */
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD",
+      "Book Antiqua", Georgia, serif; /* Ensure font consistency */
+    margin: 20px;
+  }
+
+  .mobile-warning-content p {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* Close Button Styles */
+  #close-mobile-warning {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.3s ease;
+  }
+
+  #close-mobile-warning:hover {
+    color: var(--link-color); /* Change color on hover for feedback */
+  }
+
+  /* Optional: Increase clickable area for the close button */
+  #close-mobile-warning::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+  }
+}
