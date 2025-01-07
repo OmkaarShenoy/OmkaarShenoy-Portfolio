@@ -153,7 +153,7 @@ body::before {
   background-image: radial-gradient(#444 1px, transparent 1px);
   background-size: 20px 20px;
   background-repeat: repeat;
-  opacity: 0.5; 
+  opacity: 0.8; 
   pointer-events: none; 
   z-index: -1; 
 }
