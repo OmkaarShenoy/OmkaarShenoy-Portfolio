@@ -112,6 +112,7 @@ const toggle   = document.querySelectorAll('#theme-toggle');
 let mouseX = 0, mouseY = 0;
 let outlineX = 0, outlineY = 0;
 const speed = 0.2;
+const fuzzyspeed = speed/0.75;
 
 links.forEach(link => {
   link.addEventListener('mouseenter', () => {
@@ -144,6 +145,21 @@ document.addEventListener('mousemove', e => {
   // (Use clientX/clientY since our container is the full viewport.)
 });
 
+
+const fuzzySphere = document.querySelector('.cursor-fuzzy-sphere');
+let sphereX = 0, sphereY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  // Move the fuzzy sphere directly
+  // fuzzySphere.style.left = mouseX + 'px';
+  // fuzzySphere.style.top  = mouseY + 'px';
+
+  // If you already do a "smooth" outline, you can also do the same for fuzzySphere 
+  // or just keep it in sync with the dot, up to you.
+});
+
 function animate() {
   // Dot moves instantly:
   dot.style.left = mouseX + 'px';
@@ -154,6 +170,11 @@ function animate() {
   outlineY += (mouseY - outlineY) * speed;
   outline.style.left = outlineX + 'px';
   outline.style.top  = outlineY + 'px';
+
+  sphereX += (mouseX - sphereX) * fuzzyspeed;
+  sphereY += (mouseY - sphereY) * fuzzyspeed;
+  fuzzySphere.style.left = sphereX + 'px';
+  fuzzySphere.style.top  = sphereY + 'px';
 
   requestAnimationFrame(animate);
 }
