@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -93,66 +94,6 @@
     <div class="custom-cursor-dot"></div>
     <div class="custom-cursor-outline"></div>
   </div>
-
-  <script>
-    const dot = document.querySelector('.custom-cursor-dot');
-const outline = document.querySelector('.custom-cursor-outline');
-const links   = document.querySelectorAll('a');
-const button   = document.querySelectorAll('button');
-const toggle   = document.querySelectorAll('#theme-toggle');
-
-let mouseX = 0, mouseY = 0;
-let outlineX = 0, outlineY = 0;
-const speed = 0.2;
-
-links.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    outline.classList.add('link-hover');
-  });
-  link.addEventListener('mouseleave', () => {
-    outline.classList.remove('link-hover');
-  });
-});
-button.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    outline.classList.add('link-hover');
-  });
-  link.addEventListener('mouseleave', () => {
-    outline.classList.remove('link-hover');
-  });
-});
-toggle.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    outline.classList.add('link-hover');
-  });
-  link.addEventListener('mouseleave', () => {
-    outline.classList.remove('link-hover');
-  });
-});
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; 
-  mouseY = e.clientY; 
-  // (Use clientX/clientY since our container is the full viewport.)
-});
-
-function animate() {
-  // Dot moves instantly:
-  dot.style.left = mouseX + 'px';
-  dot.style.top  = mouseY + 'px';
-
-  // Outline lerps toward the mouse:
-  outlineX += (mouseX - outlineX) * speed;
-  outlineY += (mouseY - outlineY) * speed;
-  outline.style.left = outlineX + 'px';
-  outline.style.top  = outlineY + 'px';
-
-  requestAnimationFrame(animate);
-}
-animate();
-
-  </script>
-
 </body>
 
 </html>
