@@ -1188,6 +1188,17 @@ nav a:hover {
   );
 
   /* Generous blur for a very soft glow */
-  filter: blur(100px);
+  filter: blur(50px);
 }
 
+
+@media (max-width: 768px) {
+  * {
+    cursor: auto !important; /* System cursor */
+  }
+  .custom-cursor-dot,
+  .custom-cursor-outline,
+  .cursor-fuzzy-sphere {
+    display: none !important; /* Hide all cursor elements, including blur/fuzzy sphere */
+  }
+}
