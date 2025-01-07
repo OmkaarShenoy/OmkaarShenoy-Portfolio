@@ -8,12 +8,18 @@
   --bg-color  : #f7f1e5;
   --text-color: #111;
   --link-color: #111;
+  --cursor-dot-color: #111;
+  --cursor-outline-color: #111;
 }
+
+
 
 [data-theme="dark"] {
   --bg-color  : #121212;
   --text-color: #efefec;
   --link-color: #efefec;
+  --cursor-dot-color: #efefec;
+  --cursor-outline-color: #efefec;
 }
 
 a:link,
@@ -119,7 +125,6 @@ nav button {
 body {
   width          : 87.5%;
   margin         : -100px auto;
-  /* padding-left: 12.5%; */
 
   font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD",
     "Book Antiqua", Georgia, serif;
@@ -127,9 +132,16 @@ body {
   color           : var(--text-color);
   max-width       : 800px;
   counter-reset   : sidenote-counter;
-  
+
   
 }
+
+.landing-name,
+.intro-paragraph {
+  position: relative;  /* ensures a local stacking context */
+  z-index: 0;          /* or 1; just something less than 9999999999 */
+}
+
 
 body::before {
   content: "";
@@ -964,7 +976,6 @@ nav a:hover {
   width           : 40px;
   height          : 40px;
   border          : none;
-  cursor          : pointer;
   z-index         : 1000;
 }
 
@@ -1098,4 +1109,55 @@ nav a:hover {
     width     : 100%;
     text-align: left;
   }
+}
+/* Hide the default cursor */
+* {
+  cursor: none;
+}
+
+/* The center dot */
+.custom-cursor-dot {
+  position: absolute; /* Instead of fixed */
+  width: 10px;
+  height: 10px;
+  background-color: var(--cursor-dot-color);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor-outline {
+  position: absolute; /* Instead of fixed */
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--cursor-outline-color);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  /* Transition multiple properties for a smooth animation */
+  transition: width 0.3s ease, 
+              height 0.3s ease, 
+              border-width 0.3s ease, 
+              transform 0.3s ease;
+}
+
+/* Applied on hover over links */
+.custom-cursor-outline.link-hover {
+  position: absolute; /* Instead of fixed */
+  width: 70px;               /* Larger ring */
+  height: 70px;              /* Larger ring */
+  border-width: 1px;         /* Thinner border */
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+#cursor-overlay {
+  position: fixed;
+  /* Takes up the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* or 100% if you prefer */
+  height: 100vh;
+  z-index: 9999999999; /* On top of all else */
+  pointer-events: none; /* So it never blocks clicks on your page */
 }

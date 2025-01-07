@@ -1,7 +1,8 @@
 <html lang="en">
-<head> 
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css" />
   <title>Home | Omkaar Shenoy</title>
   <script src="scripts/script.js" defer></script>
@@ -9,11 +10,13 @@
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
   </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>ript defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+
 </head>
 
 <nav>
@@ -39,19 +42,27 @@
 <body>
   <div class="landing-name">
     <h1>omkaar shenoy</h1>
-    
-      <div><p class="by-line">computer science @ <a href="https://asu.edu">arizona state university</a> </p></div>
-      <div><p class="by-line">software dev @ <a href="https://webstaurantstore.com">webstaurantstore</a> | previously software dev @ <a
-        href="https://npr.org">npr</a></p></div>  
-        <div><p class="by-line"><a href="mailto:hello@omkaarshenoy.com">hello [at] omkaarshenoy.com</a></p></div>
-    </p>
+
+    <div>
+      <p class="by-line">computer science @ <a href="https://asu.edu">arizona state university</a> </p>
+    </div>
+    <div>
+      <p class="by-line">software dev @ <a href="https://webstaurantstore.com">webstaurantstore</a> | previously
+        software dev @ <a href="https://npr.org">npr</a></p>
+    </div>
+    <div>
+      <p class="by-line"><a href="mailto:hello@omkaarshenoy.com">hello [at] omkaarshenoy.com</a></p>
+    </div>
   </div>
 
   <button id="about-me-btn" style="display: flex; flex-direction: column">
-    
+
     about me
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style = "height:1rem; padding-top:1px;">
-      <path fill-rule="evenodd" d="M9.47 15.28a.75.75 0 0 0 1.06 0l4.25-4.25a.75.75 0 1 0-1.06-1.06L10 13.69 6.28 9.97a.75.75 0 0 0-1.06 1.06l4.25 4.25ZM5.22 6.03l4.25 4.25a.75.75 0 0 0 1.06 0l4.25-4.25a.75.75 0 0 0-1.06-1.06L10 8.69 6.28 4.97a.75.75 0 0 0-1.06 1.06Z" clip-rule="evenodd" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+      style="height:1rem; padding-top:1px;">
+      <path fill-rule="evenodd"
+        d="M9.47 15.28a.75.75 0 0 0 1.06 0l4.25-4.25a.75.75 0 1 0-1.06-1.06L10 13.69 6.28 9.97a.75.75 0 0 0-1.06 1.06l4.25 4.25ZM5.22 6.03l4.25 4.25a.75.75 0 0 0 1.06 0l4.25-4.25a.75.75 0 0 0-1.06-1.06L10 8.69 6.28 4.97a.75.75 0 0 0-1.06 1.06Z"
+        clip-rule="evenodd" />
     </svg>
   </button>
 
@@ -60,7 +71,7 @@
     <span>
       <img style="height: 1.5rem; vertical-align: middle; margin-left: 0.2rem;"
         src="https://i.ibb.co/hFHgRqD/images-removebg-preview.png" alt="ASU logo" />
-    </span>  working towards a major in computer science major with a minor in media arts and sciences. my passion lies
+    </span> working towards a major in computer science major with a minor in media arts and sciences. my passion lies
     at the intersection of technology and media, where i am driven by the immense potential these fields have to
     innovate, tell compelling stories, and address real-world challenges. i have had the opportunity to deepen my
     expertise through diverse roles in the industry. as a software engineering intern at
@@ -77,5 +88,71 @@
     software solutions. as i continue my journey in the tech world, i am eager to explore new challenges, collaborate
     with like-minded individuals, and contribute to projects that make a difference.
   </p>
+
+  <div id="cursor-overlay">
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-outline"></div>
+  </div>
+
+  <script>
+    const dot = document.querySelector('.custom-cursor-dot');
+const outline = document.querySelector('.custom-cursor-outline');
+const links   = document.querySelectorAll('a');
+const button   = document.querySelectorAll('button');
+const toggle   = document.querySelectorAll('#theme-toggle');
+
+let mouseX = 0, mouseY = 0;
+let outlineX = 0, outlineY = 0;
+const speed = 0.2;
+
+links.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    outline.classList.add('link-hover');
+  });
+  link.addEventListener('mouseleave', () => {
+    outline.classList.remove('link-hover');
+  });
+});
+button.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    outline.classList.add('link-hover');
+  });
+  link.addEventListener('mouseleave', () => {
+    outline.classList.remove('link-hover');
+  });
+});
+toggle.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    outline.classList.add('link-hover');
+  });
+  link.addEventListener('mouseleave', () => {
+    outline.classList.remove('link-hover');
+  });
+});
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; 
+  mouseY = e.clientY; 
+  // (Use clientX/clientY since our container is the full viewport.)
+});
+
+function animate() {
+  // Dot moves instantly:
+  dot.style.left = mouseX + 'px';
+  dot.style.top  = mouseY + 'px';
+
+  // Outline lerps toward the mouse:
+  outlineX += (mouseX - outlineX) * speed;
+  outlineY += (mouseY - outlineY) * speed;
+  outline.style.left = outlineX + 'px';
+  outline.style.top  = outlineY + 'px';
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+  </script>
+
 </body>
+
 </html>
