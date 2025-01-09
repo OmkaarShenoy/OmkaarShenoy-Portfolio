@@ -110,6 +110,7 @@ function smoothScroll(target) {
 
 const dot = document.querySelector('.custom-cursor-dot');
 const outline = document.querySelector('.custom-cursor-outline');
+const fuzzy = document.querySelector('.cursor-fuzzy-sphere');
 const links   = document.querySelectorAll('a');
 const button   = document.querySelectorAll('button');
 const toggle   = document.querySelectorAll('#theme-toggle');
@@ -117,30 +118,47 @@ const toggle   = document.querySelectorAll('#theme-toggle');
 let mouseX = 0, mouseY = 0;
 let outlineX = 0, outlineY = 0;
 const speed = 0.2;
-const fuzzyspeed = speed/0.75;
+const fuzzyspeed = speed*0.65;
 
 links.forEach(link => {
   link.addEventListener('mouseenter', () => {
     outline.classList.add('link-hover');
+    fuzzy.classList.add('link-hover');
   });
   link.addEventListener('mouseleave', () => {
     outline.classList.remove('link-hover');
+    fuzzy.classList.remove('link-hover');
   });
 });
+
+// Add hover effects for fuzzy spheres
+// fuzzy.forEach(link => {
+//   link.addEventListener('mouseenter', () => {
+//     fuzz.classList.add('link-hover');
+//   });
+//   link.addEventListener('mouseleave', () => {
+//     fuzz.classList.remove('link-hover');
+//   });
+// });
+
 button.forEach(link => {
   link.addEventListener('mouseenter', () => {
     outline.classList.add('link-hover');
+    fuzzy.classList.add('link-hover');
   });
   link.addEventListener('mouseleave', () => {
     outline.classList.remove('link-hover');
+    fuzzy.classList.remove('link-hover');
   });
 });
 toggle.forEach(link => {
   link.addEventListener('mouseenter', () => {
     outline.classList.add('link-hover');
+    fuzzy.classList.add('link-hover');
   });
   link.addEventListener('mouseleave', () => {
     outline.classList.remove('link-hover');
+    fuzzy.classList.remove('link-hover');
   });
 });
 

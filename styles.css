@@ -1172,6 +1172,13 @@ nav a:hover {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+.cursor-fuzzy-sphere.link-hover {
+
+  width: 80px; /* Adjust size as needed */
+  height: 80px;
+  opacity: 0.75;
+
+}
 
 #cursor-overlay {
   position: fixed;
@@ -1188,8 +1195,8 @@ nav a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100px; /* Adjust size as needed */
-  height: 100px;
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
   border-radius: 100%;
   pointer-events: none;
 
@@ -1198,9 +1205,13 @@ nav a:hover {
   background-size: 300% 300%; /* Oversize background to allow movement */
   
   animation: gradient-move 2s linear infinite; /* Continuous gradient movement */
+  transition: width 0.3s ease, 
+              height 0.3s ease, 
+              border-width 0.3s ease, 
+              transform 0.3s ease;
   
   /* Generous blur for a soft glow */
-  filter: blur(100px);
+  filter: blur(15px);
 }
 
 
