@@ -82,15 +82,6 @@ function smoothScroll(target) {
 document.getElementById('back-button').addEventListener('click', () => {
   window.history.back();
 });
-document.getElementById('work-bar-toggle').addEventListener('click', function () {
-  document.querySelector('.work-bar').classList.toggle('active');
-});
-
-// Toggle work-bar visibility on button click
-document.getElementById('work-bar-toggle').addEventListener('click', function (event) {
-  event.stopPropagation(); // Prevent the click event from reaching the document
-  document.querySelector('.work-bar').classList.toggle('active');
-});
 
 // Close work-bar if clicked anywhere outside
 document.addEventListener('click', function (event) {
