@@ -213,3 +213,50 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const safariBanner = document.getElementById("safari-banner");
+
+  // Detect browser
+  const userAgent = navigator.userAgent;
+  const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
+  const isChrome = /chrome|crios/i.test(userAgent);
+  const isFirefox = /firefox/i.test(userAgent);
+
+  // Debug statements to print browser information
+  console.log("User Agent:", userAgent);
+  if (isSafari) {
+    console.log("Browser detected: Safari");
+    safariBanner.style.left = "0"; // Show banner with slide-in animation
+  } else if (isChrome) {
+    console.log("Browser detected: Chrome");
+  } else if (isFirefox) {
+    console.log("Browser detected: Firefox");
+  } else {
+    console.log("Browser detected: Other");
+  }
+
+  // Hide the banner if not Safari
+  if (!isSafari) {
+    safariBanner.style.display = "none";
+  }
+
+  // Add event listener to close button
+  document.getElementById("close-banner").addEventListener("click", () => {
+    console.log("Safari banner dismissed by user.");
+    safariBanner.style.animation = "slideOut 0.5s ease-in forwards";
+  });
+});
+
+// Slide-out animation for the banner
+const css = `
+@keyframes slideOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: -300px;
+  }
+}`;
+const style = document.createElement("style");
+style.innerHTML = css;
+document.head.appendChild(style);

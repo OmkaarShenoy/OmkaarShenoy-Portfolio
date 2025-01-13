@@ -1139,7 +1139,7 @@ nav a:hover {
 
 /* The center dot */
 .custom-cursor-dot {
-  position: absolute; /* Instead of fixed */
+  position: fixed; /* Instead of fixed */
   width: 10px;
   height: 10px;
   background-color: var(--cursor-dot-color);
@@ -1149,7 +1149,7 @@ nav a:hover {
 }
 
 .custom-cursor-outline {
-  position: absolute; /* Instead of fixed */
+  position: fixed; /* Instead of fixed */
   width: 40px;
   height: 40px;
   border: 2px solid var(--cursor-outline-color);
@@ -1294,5 +1294,55 @@ nav a:hover {
     right: -5px;
     bottom: -5px;
     left: -5px;
+  }
+}
+
+
+#safari-banner {
+  position: fixed;
+  top: 75px; /* Slightly below the top for a clean look */
+  left: -300px; /* Initially hidden off-screen */
+  width: 280px; /* Small, sleek banner */
+  padding: 10px 20px;
+  background-color: var(--bg-color); /* Match site's background color */
+  color: var(--text-color); /* Match site's text color */
+  font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-size: 14px;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.banner-text {
+  flex-grow: 1;
+  text-align: left;
+}
+
+#close-banner {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+#close-banner:hover {
+  color: var(--link-color); /* Match hover style with site's links */
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    left: -300px; /* Hidden off-screen */
+  }
+  to {
+    left: 0; /* Fully visible */
   }
 }
