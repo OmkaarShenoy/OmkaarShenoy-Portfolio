@@ -1,0 +1,371 @@
+:root {
+  /* switch px → rem (1rem ≈ your root font-size, usually 16px) */
+  --main-width: 85rem;      /* ≈ 960px */
+  --sidebar-width: 8rem;   /* ≈ 240px */
+  --gutter: 2rem;           /* ≈ 32px */
+  --header-height: 3.5rem;  /* ≈ 56px */
+}
+
+/* ============ RESET & BASE ============ */
+* { box-sizing: border-box; }
+body, h1, h2, h3, h4, p, ul, ol, table, nav, aside, main {
+  margin: 0; padding: 0;
+}
+body {
+  font-family: 'Times New Roman','Georgia','Times','Source Serif Pro',serif;
+  line-height: 1.5;
+  color: #202122;
+  background: #fff;
+}
+
+p{
+  font-family: sans-serif;
+}
+
+/* ============ HEADER ============ */
+/* identical to previous version */
+.mw-header {
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  height: 56px;
+  background: #fff;
+  font-size: 14px;
+}
+.mw-hamburger {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-right: 12px;
+  width: 32px; height: 32px;
+  cursor: pointer;
+}
+.mw-hamburger span,
+.mw-hamburger span::before,
+.mw-hamburger span::after {
+  display: block;
+  width: 18px; height: 2px;
+  background: #464646;
+  border-radius: 1px;
+  position: relative;
+}
+.mw-hamburger span::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+.mw-hamburger span::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.mw-logo img {
+  display: block;
+  width: 50px; height: 50px;
+}
+.mw-site-name {
+  font-size: 24px;
+  margin-left: 8px;
+  font-weight: 300;
+}
+.tagline {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  color: #555;
+  margin-top: -2px;
+}
+
+.mw-search {
+  margin: 0 24px;
+}
+.mw-search form {
+  display: flex;
+}
+.mw-search input[type="search"] {
+  width: 320px;
+  font-size: 14px;
+  padding: 4px 8px;
+  border: 1px solid #a2a9b1;
+  border-radius: 2px 0 0 2px;
+}
+.mw-search button {
+  font-size: 14px;
+  padding: 4px 12px;
+  border: 1px solid #a2a9b1;
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.mw-user-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.mw-user-links a,
+.mw-user-links .mw-more {
+  font-size: 14px;
+  margin-left: 24px;
+  color: #0645ad;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mw-user-links a:hover {
+  text-decoration: underline;
+}
+
+/* ============ PAGE WRAP ============ */
+.page-wrap {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  gap: var(--gutter);
+  max-width: var(--main-width);
+  margin: 0 auto;          /* center horizontally */
+  padding: var(--gutter);
+}
+/* ============ LAYOUT ============ */
+.mw-body {
+  max-width: 1080px;
+}
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+/* ============ STICKY SIDEBAR ============ */
+.mw-sidebar {
+  position: sticky;
+  top: var(--header-height);
+  width: var(--sidebar-width);
+  /* calculate the gap to the left of the centered column: */
+  left: calc((100vw - var(--main-width)) / 2 - var(--sidebar-width));
+  /* ensure it doesn’t inherit any extra offset */
+  margin: 0;
+  align-self: start;       /* ensure it doesn’t stretch vertically */
+  font-family: sans-serif;
+}
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  font-size: 88%;
+  padding: 8px;
+}
+.toctitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.togglelink {
+  float: right;
+  font-weight: normal;
+  cursor: pointer;
+}
+.toc ul {
+  list-style: none;
+}
+.toc ul ul {
+  margin-left: 16px;
+}
+
+/* --- Remove old box styling --- */
+.mw-sidebar .toc {
+  background: none;
+  border: none;
+  padding: 0;
+  width: auto;
+}
+
+/* --- Contents header & hide button --- */
+.mw-sidebar .toc .toctitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 4px;
+  padding: 0 4px;
+}
+
+/* pill‐style “hide” button */
+.mw-sidebar .toc .togglelink {
+  display: inline-block;
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: normal;
+  cursor: pointer;
+  text-decoration: none;
+  color: #464646;
+}
+
+/* underline separating header from list */
+.mw-sidebar .toc .toctitle + ul {
+  border-top: 1px solid #a2a9b1;
+  margin: 4px 0 0;
+  padding-top: 8px;
+  list-style: none;
+}
+
+/* list items */
+.mw-sidebar .toc ul li {
+  margin: 4px 0;
+  padding-left: 0;
+}
+
+/* nested lists */
+.mw-sidebar .toc ul ul {
+  margin-left: 1em;
+}
+
+/* link styling */
+.mw-sidebar .toc a {
+  color: #3366CC;
+  text-decoration: none;
+}
+.mw-sidebar .toc a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* ============ CENTERED COLUMN ============ */
+.mw-body {
+  flex: 0 0 auto;          /* don’t grow or shrink */
+  padding: 0 var(--gutter);
+}
+
+
+.mw-content {
+  position: relative; /* so infobox floats within */
+  padding: 0 var(--gutter);
+}
+
+/* ============ MAIN CONTENT ============ */
+.mw-content {
+  flex: 1;
+}
+
+/* Titles */
+h1#firstHeading {
+  font-size: 2.3em;
+  margin-bottom: 0.5em;
+}
+h2 {
+  font-size: 1.6em;
+  margin: 24px 0 8px;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 4px;
+}
+h3 {
+  font-size: 1.3em;
+  margin: 16px 0 4px;
+}
+h4 {
+  font-size: 1.1em;
+  margin: 12px 0 4px;
+}
+
+/* Paragraphs & Lists */
+p {
+  margin: 0 0 16px;
+}
+ul, ol {
+  margin: 0 0 16px 24px;
+}
+
+/* ============ INFOBOX ============ */
+
+/* ============ INFOBOX ============ */
+.infobox {
+  font-family: sans-serif;
+  float: right;
+  width: 20rem;        /* ≈ 320px */
+  max-width: 100%;     /* never overflow its container */
+  margin: 0 0 var(--gutter) var(--gutter);
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  font-size: 0.88rem;  /* 88% */
+  line-height: 1.4;
+}
+/* Cells all share the same 1px grid and padding */
+.infobox th,
+.infobox td {
+  border:none;
+  padding: 0.4em 0.6em;
+  vertical-align: top;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Header cell (title) */
+.infobox-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.6em;
+}
+
+/* Image row: no extra padding on the cell, image centered with its own margin */
+.infobox-image td {
+  padding: 0;
+}
+.infobox-image img {
+  display: block;
+  margin: 0.6em auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Left‐column labels: bold, same background as the box */
+.infobox th[scope="row"] {
+  background: #f8f9fa;
+  font-weight: bold;
+}
+
+/* Right‐column data cells: white background, normal weight */
+.infobox td:not(.infobox-image) {
+  
+  font-weight: normal;
+}
+
+/* Links inside infobox should use Vector link colors */
+.infobox a {
+  color: #3366CC;
+  text-decoration: none;
+}
+.infobox a:hover {
+  text-decoration: underline;
+}
+
+
+/* headings & paragraphs: use rem for margins */
+h1#firstHeading {
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.6rem;
+  margin: 1.5rem 0 0.5rem;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 0.25rem;
+  font-weight: 300;
+}
+p {
+  margin-bottom: 1rem;
+}
+
+a{
+  color: #3366CC;
+  text-decoration: none;
+}
