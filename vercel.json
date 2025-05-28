@@ -1,15 +1,12 @@
 {
-    "redirects": [
+    "rewrites": [
       {
         "source": "/",
         "has": [
           { "type": "host", "value": "wiki.omkaarshenoy.com" }
         ],
-        "destination": "/wiki/index.html",
-        "permanent": false
-      }
-    ],
-    "rewrites": [
+        "destination": "/wiki/wiki.html"
+      },
       {
         "source": "/(.*)",
         "has": [
