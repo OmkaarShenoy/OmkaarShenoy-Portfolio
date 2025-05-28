@@ -1,12 +1,21 @@
 {
     "redirects": [
       {
-        "source": "/:path*",
+        "source": "/",
         "has": [
           { "type": "host", "value": "wiki.omkaarshenoy.com" }
         ],
-        "destination": "/wiki/:path*",
+        "destination": "/wiki/index.html",
         "permanent": false
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "has": [
+          { "type": "host", "value": "wiki.omkaarshenoy.com" }
+        ],
+        "destination": "/wiki/$1"
       }
     ]
   }
