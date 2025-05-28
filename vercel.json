@@ -1,12 +1,12 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
-    "rewrites": [
+    "redirects": [
       {
         "source": "/:path*",
         "has": [
           { "type": "host", "value": "wiki.omkaarshenoy.com" }
         ],
-        "destination": "/wiki/:path*"
+        "destination": "/wiki/:path*",
+        "permanent": false
       }
     ]
   }
