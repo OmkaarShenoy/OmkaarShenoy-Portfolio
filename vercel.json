@@ -5,7 +5,7 @@
         "has": [
           { "type": "host", "value": "wiki.omkaarshenoy.com" }
         ],
-        "destination": "/wiki/:path*"
+        "destination": "/wiki/index.html"
       }
     ]
   }
