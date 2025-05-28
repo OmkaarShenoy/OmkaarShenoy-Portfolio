@@ -370,3 +370,7 @@ a{
   color: #3366CC;
   text-decoration: none;
 }
+
+a:hover{
+  text-decoration: underline;
+}
