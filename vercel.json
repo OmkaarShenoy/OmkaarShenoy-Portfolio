@@ -1,18 +1,11 @@
 {
     "rewrites": [
       {
-        "source": "/",
+        "source": "/:path*",
         "has": [
           { "type": "host", "value": "wiki.omkaarshenoy.com" }
         ],
-        "destination": "/wiki/wiki.html"
-      },
-      {
-        "source": "/(.*)",
-        "has": [
-          { "type": "host", "value": "wiki.omkaarshenoy.com" }
-        ],
-        "destination": "/wiki/$1"
+        "destination": "/wiki/:path*"
       }
     ]
   }
