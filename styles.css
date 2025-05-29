@@ -46,6 +46,19 @@ a {
   z-index         : 1000;
 }
 
+#wiki-btn{
+  background-color: var(--bg-color);
+  color           : var(--text-color);
+  position        : fixed;
+  top             : 60px;
+  left            : 20px;
+  width           : 40px;
+  height          : 40px;
+  border          : none;
+  cursor          : pointer;
+  z-index         : 1000;
+}
+
 #theme-toggle svg {
   fill: var(--text-color);
 }
